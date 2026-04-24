@@ -2,6 +2,15 @@
 感谢大佬的开源
 https://github.com/evi0s/WMPFDebugger
 
+## 前置条件
+
+需要关闭 SIP (System Integrity Protection)，否则无法正常调试。
+
+1. 重启 Mac，按住**电源键**进入恢复模式
+2. 打开 **实用工具 > 终端**
+3. 执行 `csrutil disable`
+4. 重启
+
 ## 使用
 
 ```git clone https://github.com/chain00x/WMPFDebugger-arm```
