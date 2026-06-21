@@ -5,7 +5,7 @@ const getMainModule = () => {
 const moduleBase = getMainModule().base;
 
 //搜索SendToClientFilter
-Interceptor.attach(moduleBase.add(0x83B9190), {
+Interceptor.attach(moduleBase.add(0x8429414), {
     onEnter(args) {
     },
     onLeave(retval) {
@@ -19,14 +19,14 @@ Interceptor.attach(moduleBase.add(0x83B9190), {
 });
 
 //搜索[perf] AppletIndexContainer::OnLoadStart，最后一个的函数
-Interceptor.attach(moduleBase.add(0x83BC8C8), {
+Interceptor.attach(moduleBase.add(0x8437670), {
     onEnter(args) {
         try {
             const result = args[0];
             const v4 = result.add(8).readPointer();
 
             if (v4 && !v4.isNull()) {
-                const qword1 = v4.add(1368).readPointer();
+                const qword1 = v4.add(1101).readPointer();
                 if (qword1 && !qword1.isNull()) {
                     const qword2 = qword1.add(16).readPointer();
                     if (qword2 && !qword2.isNull()) {
@@ -48,7 +48,7 @@ Interceptor.attach(moduleBase.add(0x83BC8C8), {
 });
 
 // 搜索[perf] AppletIndexContainer::OnLoadStart
-Interceptor.attach(moduleBase.add(0x4F6454C), {
+Interceptor.attach(moduleBase.add(0x4CDA2B0), {
     onEnter(args) {
         this.context.x1 = (this.context.x1 & ~0xFF) | 0x1;
     },
@@ -57,7 +57,7 @@ Interceptor.attach(moduleBase.add(0x4F6454C), {
 });
 
 //搜索WAPCAdapterAppIndex.js，第一个引用
-Interceptor.attach(moduleBase.add(0x4FAD41C), {
+Interceptor.attach(moduleBase.add(0x4FD4FFC), {
     onEnter(args) {
     },
     onLeave(retval) {
